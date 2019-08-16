@@ -1,0 +1,172 @@
+#1. Shows the files /directories in your current directory
+command:
+ls
+
+output:
+kemampuan-dasar
+
+#2. Shows all the files not only in directories but also subdirectories 
+command:
+ls -R
+
+output:
+.:
+kemampuan-dasar
+
+./kemampuan-dasar:
+kemampuan-dasar-1  kemampuan-dasar-2
+
+./kemampuan-dasar/kemampuan-dasar-1:
+kasus  latihan
+
+./kemampuan-dasar/kemampuan-dasar-1/kasus:
+cari-java.sh  process-killer.sh
+
+./kemampuan-dasar/kemampuan-dasar-1/latihan:
+cmdline.txt  env.txt  grub.txt  kernel-linux.txt  shellscripts
+
+./kemampuan-dasar/kemampuan-dasar-1/latihan/shellscripts:
+first.sh  sleep-example.sh
+
+./kemampuan-dasar/kemampuan-dasar-2:
+praktik-1.md  praktik-2.md  README.md
+
+#3. Gives detailed information of the files
+command:
+ls -al
+
+output:
+total 16
+drwxr-xr-x  4 akbarlaz akbarlaz 4096 Aug 16 15:26 .
+drwxr-xr-x 24 akbarlaz akbarlaz 4096 Aug 16 15:27 ..
+drwxr-xr-x  8 akbarlaz akbarlaz 4096 Aug 16 15:37 .git
+drwxr-xr-x  4 akbarlaz akbarlaz 4096 Aug 16 14:10 kemampuan-dasar
+
+#4. To view hidden files
+command:
+ls -a
+
+output:
+.  ..  .git  kemampuan-dasar
+
+#5. Create a new file
+command:
+cat > filename1 //without space
+
+cat > 'file name2' //using space
+
+output:
+example1 //user input for the file content, ctrl+D to finish adding content
+
+example 2 //user input for the file content, ctrl+D to finish adding content
+
+#6. View a file
+command:
+cat filename1 //without space
+
+cat 'file name2' //using space
+
+output:
+example1
+
+example 2
+
+#7. Combine 2 files
+command:
+cat filename1 'file name2' > filename_combined
+
+cat filename_combined
+
+output:
+example1
+example 2
+
+#8. Delete files
+command:
+rm filename1
+
+ls //to check wether the file is deleted or not
+
+output:
+
+'file name2'   filename_combined   kemampuan-dasar
+
+#9. Moving and/or renaming file
+command:
+mv new_file moved_new_file
+
+ls //to check as usual
+
+output:
+kemampuan-dasar  moved_new_file
+
+#10. Make new directory
+command:
+mkdir new_dir
+
+ls
+
+output:
+kemampuan-dasar  new_dir
+
+#11. allows regular users to run programs with the security privileges of the superuser or root
+command:
+sudo
+
+example:
+sudo apt-get install openjdk-11-jre //you can't run this command as a regular user
+
+output:
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+openjdk-11-jre is already the newest version (11.0.4+11-1ubuntu2~18.04.3).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+
+#12. To get help on any command that you do not understand
+command:
+man
+
+example:
+man npm
+
+output:
+NPM(1)                                                                                                                                                        NPM(1)
+
+NAME
+       npm - javascript package manager
+
+SYNOPSIS
+       npm <command> [args]
+
+VERSION
+       3.5.2
+
+DESCRIPTION
+       npm  is  the package manager for the Node JavaScript platform. It puts modules in place so that node can find them, and manages dependency conflicts intelli‐
+       gently.
+
+       It is extremely configurable to support a wide variety of use cases. Most commonly, it is used to publish, discover, install, and develop node programs.
+
+       Run npm help to get a list of available commands.
+
+INTRODUCTION
+       You probably got npm because you want to install stuff.
+
+       Use npm install blerg to install the latest version of "blerg". Check out npm help npm-install for more info. It can do a lot of stuff.
+
+       Use the npm search command to show everything that´s available. Use npm ls to show everything you´ve installed.
+
+DEPENDENCIES
+       If a package references to another package with a git URL, npm depends on a preinstalled git.
+
+       If one of the packages npm tries to install is a native node module and requires compiling of C++ Code, npm  will  use  node-gyp  https://github.com/TooTall‐
+       Nate/node-gyp  for  that  task. For a Unix system, node-gyp https://github.com/TooTallNate/node-gyp needs Python, make and a buildchain like GCC. On Windows,
+       Python and Microsoft Visual Studio C++ is needed. Python 3 is not supported by node-gyp https://github.com/TooTallNate/node-gyp. For more  information  visit
+       the node-gyp repository https://github.com/TooTallNate/node-gyp and the node-gyp Wiki https://github.com/TooTallNate/node-gyp/wiki.
+
+DIRECTORIES
+       See npm help 5 npm-folders to learn about where npm puts stuff.
+
+       In particular, npm has two modes of operation:
+ Manual page npm(1) line 1 (press h for help or q to quit)
