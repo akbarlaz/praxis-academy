@@ -1,3 +1,19 @@
-kernel location
+#kernel location
 /usr/src/linux-headers-4.15.0-58-generic/kernel
 
+#contoh file yg terkait dengan kernel
+
+1. adjust_autoksyms.sh
+fungsinya membuat include/generated/autoksyms.h beserta file-file dependencynya
+
+2. setlocalversion
+fungsinya untuk menambahkan informasi versi local dari versi yang digunakkan
+
+3. kallsyms.c
+fungsinya untuk mengkompres char codes yang tidak dipakai
+
+4. ftrace-bisect.sh
+fungsinya untuk membantu menemukan fungsi-fungsi yang menyebabkan machine reboot, hang, atau crash yang sedang dilacak oleh function tracer atau function graph tracing
+
+5. config
+fungsinya untuk memanipulasi pilihan di dalam sebuah file .config dari command line
