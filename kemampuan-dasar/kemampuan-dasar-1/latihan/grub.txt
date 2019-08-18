@@ -1,0 +1,27 @@
+/boot/grub/grub.cfg
+#GRUB parameters
+recordfail
+load_video
+insmod gzio
+if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+insmod part_gpt
+insmod ext2
+set root='hd0,gpt2'
+if [ x$feature_platform_search_hint = xy ]; then
+  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,gpt2 --hint-efi=hd0,gpt2 --hint-baremetal=ahci0,gpt2  148701ff-6e74-45be-bd21-a638460682f2
+else
+  search --no-floppy --fs-uuid --set=root 148701ff-6e74-45be-bd21-a638460682f2
+fi
+echo	'Loading Linux 4.15.0-54-generic ...'
+linux	/boot/vmlinuz-4.15.0-54-generic root=UUID=148701ff-6e74-45be-bd21-a638460682f2 ro recovery nomodeset 
+echo	'Loading initial ramdisk ...'
+initrd	/boot/initrd.img-4.15.0-54-generic
+
+#informasi
+recordfail memiliki fitur ketika proses boot gagal maka proses boot berikutnya akan berhenti secara otomatis di grub menu
+insmod gzio menyisipkan module gzio
+linux /boot/vmlinuz* menjalankan kernel linux
+echo "*" menampilkan pesan tersebut pada grub menu
+initrd menjalankan initrd
+set root mengatur variabel root
+referensi https://www.gnu.org/software/grub/manual/grub/html_node/Command_002dline-and-menu-entry-commands.html#Command_002dline-and-menu-entry-commands
