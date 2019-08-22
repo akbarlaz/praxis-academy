@@ -38,7 +38,7 @@ run {
 }
 
 jar { 
-    baseName = 'ClassesAndObject' 
+    baseName = 'latihan01-04' 
     version = '1.0' 
     manifest { 
          attributes 'Main-Class': 'ClassesAndObject.App' } 
