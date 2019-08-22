@@ -33,9 +33,13 @@ application {
     mainClassName = 'ClassesAndObject.App'
 }
 
- jar { 
-        baseName = 'ClassesAndObject' 
-        version = '1.0' 
-        manifest { 
-                     attributes 'Main-Class': 'ClassesAndObject.App' } 
-     }    
+run {
+    standardInput = System.in
+}
+
+jar { 
+    baseName = 'ClassesAndObject' 
+    version = '1.0' 
+    manifest { 
+         attributes 'Main-Class': 'ClassesAndObject.App' } 
+}    

@@ -3,24 +3,59 @@
  */
 package ClassesAndObject;
 
+import java.util.Scanner;
+import ClassesAndObject.nestedclasses.*;
+import ClassesAndObject.card.*;
+
 public class App {
     
-
+    
     public static void main(String[] args) {
-        MountainBike myBike = new MountainBike(0, 30, 0, 8);
-        MountainBike myBike2 = new MountainBike(0, 40, 5, 20);
-        System.out.println("Objek sepeda 1\n");
-        System.out.println("Id = "+myBike.getID());
-        System.out.println("Cadence = "+myBike.getCadence());
-        System.out.println("Gear = "+myBike.getGear());
-        System.out.println("Speed = "+myBike.getSpeed()+"\n");
-        System.out.println("Objek sepeda 2\n");
-        System.out.println("Id = "+myBike2.getID());
-        System.out.println("Cadence = "+myBike2.getCadence());
-        System.out.println("Gear = "+myBike2.getGear());
-        System.out.println("Speed = "+myBike2.getSpeed()+"\n");
-        System.out.println("Jumlah objek sepeda = "+myBike.getNumberOfBicycles());
+        int pilihan;
+        int exit = 0;    
+        Scanner scan = new Scanner(System.in);
+        do {
+            System.out.println("==================================");
+            System.out.println("Latihan 1 Minggu pertama hari ke-4");
+            System.out.println("==================================");
+            System.out.println("Silahkan pilih program yang akan dijalankan");
+            System.out.println("[1] Classes and Object(Bicycle)");
+            System.out.println("[2] Classes and Object(Card)");
+            System.out.println("[3] Nested Classes(Shadow Test)");
+            System.out.println("[4] Nested Classes(Data Structure)");
+            pilihan = scan.nextInt();
+            if (pilihan < 1 | pilihan > 4) {
+                System.out.println("Tolong masukkan angka yang sesuai");
+            } else {
+                switch (pilihan) {
+                    case 1:
+                        BicycleMain o1 = new BicycleMain();
+                        o1.main(args);
+                        exit = 1;
+                        break;
+                    case 2:
+                        DisplayDeck o2 = new DisplayDeck();
+                        o2.main(args);
+                        exit = 1;
+                        break;
+                    case 3:
+                        ShadowTest o3 = new ShadowTest();
+                        o3.main(args);
+                        exit = 1;
+                        break;
+                    case 4:
+                        System.out.println("Nested Classes");
+                        exit = 1;
+                    default:
+                        break;
+                }    
+            }    
+        } while (exit == 0);
         
+        
+        
+        
+                
         
     }
 }
