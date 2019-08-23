@@ -1,3 +1,4 @@
+package latihan.dua.JavaDomParser;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.transform.Transformer;
@@ -11,7 +12,7 @@ import java.io.File;
 
 public class CreateXmlFileDemo {
 
-   public static void main(String argv[]) {
+   public static void mulai() {
 
       try {
          DocumentBuilderFactory dbFactory =

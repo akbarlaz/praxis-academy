@@ -1,5 +1,4 @@
-
-
+package latihan.dua.JavaDomParser;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
@@ -10,7 +9,7 @@ import org.w3c.dom.Element;
 
 public class DomParserDemo {
 
-   public static void main(String[] args) {
+   public static void mulai() {
 
       try {
          File inputFile = new File("input.txt");

@@ -32,3 +32,14 @@ application {
     // Define the main class for the application
     mainClassName = 'latihan.App'
 }
+
+run {
+    standardInput = System.in
+}
+
+jar { 
+    baseName = 'latihan01-05' 
+    version = '1.0' 
+    manifest { 
+         attributes 'Main-Class': 'latihan.App' } 
+}    

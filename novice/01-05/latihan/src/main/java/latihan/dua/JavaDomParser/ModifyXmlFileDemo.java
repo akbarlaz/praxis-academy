@@ -1,3 +1,4 @@
+package latihan.dua.JavaDomParser;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,7 +14,7 @@ import org.w3c.dom.NodeList;
 
 public class ModifyXmlFileDemo {
 
-   public static void main(String argv[]) {
+   public static void mulai() {
 
       try {
          File inputFile = new File("input3.xml");
