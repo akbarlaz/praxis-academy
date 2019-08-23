@@ -60,10 +60,10 @@ public class ModifyXmlFileDemo {
          DOMSource source = new DOMSource(doc);
          System.out.println("-----------Modified File-----------");
          StreamResult consoleResult = new StreamResult(System.out);
-         StreamResult result = new StreamResult(new File("modified.xml"));
+         StreamResult result = new StreamResult(new File("input3.xml"));
          transformer.transform(source, consoleResult);
          transformer.transform(source, result);
-         System.out.println("\n-----File is now saved in current directory as modified.xml-----");
+         System.out.println("\n-----File is now saved in current directory as input3.xml-----");
       } catch (Exception e) {
          e.printStackTrace();
       }
