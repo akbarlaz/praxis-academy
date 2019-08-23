@@ -6,9 +6,46 @@ package latihan;
 import java.util.Scanner;
 import latihan.satu.*;
 import latihan.dua.JavaDomParser.JavaDomMenu;
-import latihan.dua.JavaSaxParser.*;
+import latihan.dua.JavaSaxParser.JavaSaxMenu;
+import latihan.tiga.*;
 
 public class App {
+
+    private static void pilihTiga() {
+        int pilihan, back, exit; 
+        Scanner scan = new Scanner(System.in);
+        System.out.println("======================================================");
+        System.out.println("JSON with Java");
+        System.out.println("======================================================");
+        System.out.println("Silahkan pilih program yang akan dijalankan");
+        System.out.println("[1] JSON Encoder example");
+        System.out.println("[2] JSON Decoder example");
+        System.out.println("[3] Back");
+        System.out.println("[4] Exit");
+        pilihan = scan.nextInt();
+
+        switch (pilihan) {
+            case 1:
+                JsonEncodeDemo o1 = new JsonEncodeDemo();
+                o1.mulai();
+                pilihTiga();
+                break;
+            case 2:
+                JsonDecodeDemo o2 = new JsonDecodeDemo();
+                o2.mulai();
+                pilihTiga();
+                break;
+            case 3:
+                menu();
+                break;
+            case 4:
+                System.out.println("..:: Terima Kasih ::..");
+                System.exit(0);
+                break;
+            default:
+                break;
+        }
+    }
 
     private static void pilihSatu() {
         int pilihan, back, exit; 
@@ -27,15 +64,15 @@ public class App {
             case 1:
                 Test oTest = new Test();
                 oTest.mulai();
-                back = 1;
+                pilihSatu();
                 break;
             case 2:
                 SerialExample oSE = new SerialExample();
                 oSE.mulai();
-                back = 1;
+                pilihSatu();
                 break;
             case 3:
-                System.out.println("Back");
+                menu();
                 break;
             case 4:
                 System.out.println("..:: Terima Kasih ::..");
@@ -85,8 +122,7 @@ public class App {
                 System.out.println("Java DOM4J Parser Demo(Coming soon)");
                 break;
             case 7:
-                App o7 = new App();
-                o7.menu();
+                menu();
                 break;
             case 8:
                 System.out.println("..:: Terima Kasih ::..");
@@ -123,7 +159,7 @@ public class App {
                     pilihDua();
                     break;
                 case 3:
-                    System.out.println("JSON with Java(Coming soon)");
+                    pilihTiga();
                     break;
                 case 4:
                     System.out.println("Java Data Structures(Coming soon)");
@@ -146,7 +182,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-            App.menu();    
+            menu();    
         
     }
 }

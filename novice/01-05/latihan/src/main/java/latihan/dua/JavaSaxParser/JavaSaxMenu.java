@@ -2,9 +2,7 @@ package latihan.dua.JavaSaxParser;
 
 import java.util.Scanner;
 import latihan.App;
-import latihan.dua.JavaSaxParser.SaxParserDemo;
-import latihan.dua.JavaSaxParser.SaxQueryDemo;
-import latihan.dua.JavaSaxParser.SaxQueryDemo;
+
 
 
 public class JavaSaxMenu {
@@ -27,19 +25,21 @@ public class JavaSaxMenu {
             case 1:
                 SaxParserDemo o1 = new SaxParserDemo();
                 o1.mulai();
-                
+                mulai();
                 break;
             case 2:
                 SaxQueryDemo o2 = new SaxQueryDemo();
                 o2.mulai();
-                
+                mulai();
                 break;
             case 3:
-                
+                System.out.println("Not recommended");
+                mulai();
                 break;
             case 4:
                 SaxModifyDemo o4 = new SaxModifyDemo();
                 o4.mulai();
+                mulai();
             case 5:
                 App o5 = new App();
                 o5.pilihDua();

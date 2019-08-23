@@ -28,22 +28,22 @@ public class JavaDomMenu {
             case 1:
                 DomParserDemo o1 = new DomParserDemo();
                 o1.mulai();
-                back = 1;
+                mulai();
                 break;
             case 2:
                 QueryXmlFileDemo o2 = new QueryXmlFileDemo();
                 o2.mulai();
-                back = 1;
+                mulai();
                 break;
             case 3:
                 CreateXmlFileDemo o3 = new CreateXmlFileDemo();
                 o3.mulai();
-                back = 1;
+                mulai();
                 break;
             case 4:
                 ModifyXmlFileDemo o4 = new ModifyXmlFileDemo();
                 o4.mulai();
-                back = 1;
+                mulai();
             case 5:
                 App o5 = new App();
                 o5.pilihDua();
