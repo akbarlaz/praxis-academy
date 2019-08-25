@@ -1,7 +1,8 @@
-package com.bobocode;
+package sum.of.squares;
 
+import java.util.stream.IntStream;
 
-import com.bobocode.exception.InvalidRangeException;
+import sum.of.squares.exception.InvalidRangeException;
 
 
 /**
@@ -9,7 +10,7 @@ import com.bobocode.exception.InvalidRangeException;
  * OO approach. Your job is to refactor it using functional approach. E.g. avoid using mutable variables
  */
 public class SumOfSquares {
-    public static void main(String[] args) {
+    public static void mulai() {
         System.out.println("Sum of squares from 5 to 10 is " + calculateSumOfSquaresInRange(5, 10));
     }
 
@@ -26,10 +27,7 @@ public class SumOfSquares {
         }
 
         // todo: refactor using functional approach
-        int sumOfSquares = 0;
-        for (int i = startInclusive; i <= endInclusive; i++) {
-            sumOfSquares += i * i;
-        }
-        return sumOfSquares;
+        
+        return IntStream.rangeClosed(startInclusive, endInclusive).map(a -> a*a).sum();
     }
 }

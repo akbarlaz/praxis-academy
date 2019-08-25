@@ -1,6 +1,6 @@
-package com.bobocode;
+package sum.of.squares;
 
-import com.bobocode.exception.InvalidRangeException;
+import sum.of.squares.exception.InvalidRangeException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
