@@ -39,10 +39,16 @@ public class App {
                 System.out.println(o1.sum(angka1, angka2));
                 break;
             case 2:
-
+                HigherOrderFunction o2 = new HigherOrderFunction();
+                o2.mulai();
                 break;
             case 3:
+                FunctionExample o3 = new FunctionExample();
+                o3.mulai();
+                break;
+            case 4:
                 System.exit(0);
+                break;
             default:
                 System.out.println("Angka yang Anda masukkan tidak valid");
                 mainMenu();
