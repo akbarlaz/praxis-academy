@@ -5,7 +5,7 @@ import static fj.data.List.fromString;
 import static fj.function.Characters.isLowerCase;
 
 public final class Array_exists {
-    public static void main (final String[] args) {
+    public static void mulai () {
         final Array<String> a = array("Hello", "There", "what", "DAY", "iS", "iT");
         final boolean b = a.exists(s -> fromString(s).forall(isLowerCase));
         System.out.println(b); // true (because word "what" is all lower case, if we remove it it'll print false)

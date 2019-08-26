@@ -7,7 +7,7 @@ import static fj.Show.arrayShow;
 import static fj.Show.intShow;
 
 public final class Array_map {
-    public static void main(final String[] args) {
+    public static void mulai() {
         final Array<Integer> a = array(1,2,3);
         final Array<Integer> b = a.map(add.f(42));
         final Array<Integer> c = a.map(i -> i +10);

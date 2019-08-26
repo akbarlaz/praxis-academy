@@ -8,7 +8,7 @@ import static fj.data.Option.some;
 import static fj.function.Integers.add;
 
 public final class Option_map {
-    public static void main(final String[] args) {
+    public static void mulai() {
         final Option<Integer> o1 = some(7);
         final Option<Integer> o2 = none();
         final Option<Integer> p1 = o1.map(add.f(42));

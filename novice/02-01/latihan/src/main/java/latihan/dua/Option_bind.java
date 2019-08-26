@@ -8,7 +8,7 @@ import static fj.data.Option.none;
 import static fj.data.Option.some;
 
 public final class Option_bind {
-    public static void main(final String[] args) {
+    public static void mulai() {
         final Option<Integer> o1 = some(7);
         final Option<Integer> o2 = some(8);
         final Option<Integer> o3 = none();

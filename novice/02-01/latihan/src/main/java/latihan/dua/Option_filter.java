@@ -9,7 +9,7 @@ import static fj.data.Option.some;
 import static fj.function.Integers.even; 
 
 public final class Option_filter {
-    public static void main(final String[] args) {
+    public static void mulai() {
         final Option<Integer> o1 = some(7);
         final Option<Integer> o2 = none();
         final Option<Integer> o3 = some(8);
