@@ -1,5 +1,6 @@
 package account.analytics.model;
 
-public class Sex {
-    
+public enum Sex {
+    MALE,
+    FEMALE
 }

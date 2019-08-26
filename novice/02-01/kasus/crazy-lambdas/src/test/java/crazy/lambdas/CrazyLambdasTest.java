@@ -1,4 +1,4 @@
-package com.bobocode;
+package crazy.lambdas;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -236,6 +236,6 @@ public class CrazyLambdasTest {
 
         String wellDoneStr = wellDoneSupplier.get().get().get();
 
-        assertEquals("WELL DONE!", wellDoneStr);
+        assertEquals("WELL DONE", wellDoneStr);
     }
 }

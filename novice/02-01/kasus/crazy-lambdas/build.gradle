@@ -17,7 +17,6 @@ plugins {
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
-
     jcenter()
 }
 
@@ -27,17 +26,11 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-
-    // lombok jcenter
-    implementation 'org.projectlombok:lombok:1.18.8'
-
-    implementation 'io.codearte.jfairy:jfairy:0.5.9'
-
 }
 
 application {
     // Define the main class for the application
-    mainClassName = 'account.analytics.App'
+    mainClassName = 'crazy.lambdas.App'
 }
 
 run {

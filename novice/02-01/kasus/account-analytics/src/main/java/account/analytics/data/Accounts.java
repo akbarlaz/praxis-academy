@@ -1,17 +1,17 @@
-package com.bobocode.data;
+package account.analytics.data;
 
-import com.bobocode.model.Account;
-import com.bobocode.model.Sex;
-import io.codearte.jfairy.Fairy;
-import io.codearte.jfairy.producer.person.Person;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.IntStream.range;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.IntStream.range;
+import account.analytics.model.Account;
+import account.analytics.model.Sex;
+import io.codearte.jfairy.Fairy;
+import io.codearte.jfairy.producer.person.Person;
 
 public interface Accounts {
     static Account getAccount(){

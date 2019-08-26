@@ -3,20 +3,82 @@
  */
 package latihan;
 
+import latihan.satu.*;
 import latihan.dua.*;
+import java.util.Scanner;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
+
+    public static void pilihSatu() {
+        int pilihan, angka1, angka2;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=================================");
+        System.out.println("Tutorial di Jenkov.com");
+        System.out.println("=================================");
+        System.out.println("[1] Pure Functions");
+        System.out.println("[2] Higher Order Functions");
+        System.out.println("[3] No State");
+        System.out.println("[3] Functional Interfaces");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("[3] No State");
+        System.out.println("Masukkan pilihan Anda : ");
+        pilihan = scan.nextInt();
+        switch (pilihan) {
+            case 1:
+                System.out.println("Masukkan angka pertama");
+                angka1 = scan.nextInt();
+                System.out.println("Masukkan angka kedua");
+                angka2 = scan.nextInt();
+                ObjectWithPureFunction o1 = new ObjectWithPureFunction();
+                System.out.println(o1.sum(angka1, angka2));
+                break;
+            case 2:
+
+                break;
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("Angka yang Anda masukkan tidak valid");
+                mainMenu();
+                break;
+        }
+    }
+
+    public static void mainMenu() {
+        int pilihan;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=================================");
+        System.out.println("Latihan minggku ke-2 hari pertama");
+        System.out.println("=================================");
+        System.out.println("[1] Tutorial di Jenkov.com");
+        System.out.println("[2] Java 8 Examples - Functional Java");
+        System.out.println("[3] Exit");
+        System.out.println("Masukkan pilihan Anda : ");
+        pilihan = scan.nextInt();
+        switch (pilihan) {
+            case 1:
+                pilihSatu();
+                break;
+            case 2:
+
+                break;
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("Angka yang Anda masukkan tidak valid");
+                mainMenu();
+                break;
+        }
+
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-        System.out.println("Check if array exists : ");
-        Array_exists o1 = new Array_exists();
-        o1.main(args);
-        System.out.println("Fold Left : ");
-        Array_foldLeft o3 = new Array_foldLeft();
-        o3.main(args);
+        mainMenu();
     }
 }
