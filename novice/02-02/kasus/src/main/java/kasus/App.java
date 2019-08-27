@@ -10,7 +10,11 @@ import kasus.ClassesAndObject.ShadowTest;
 import kasus.ClassesAndObject.card.*;
 
 public class App {
-    
+
+    public Integer tambah(Integer a, Integer b) {
+        return a+b;
+    }    
+
     public static void mainMenu() {
 
         int pilihan;
@@ -60,4 +64,6 @@ public class App {
         App.mainMenu();
         
     }
+
+	
 }

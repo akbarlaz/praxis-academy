@@ -8,5 +8,12 @@ import static org.junit.Assert.*;
 
 public class AppTest {
 
+    @Test
+    public void testTambah() {
+        App coba = new App();
+        int hasil = coba.tambah(12, 45);
+
+        assertEquals(57, hasil);
+    }
     
 }
