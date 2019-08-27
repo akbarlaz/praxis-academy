@@ -13,5 +13,8 @@ public class App {
         HelloRunnable.main(args);
         HelloThread.main(args);
         SleepMessages.main(args);
+        SimpleThreads.main(args);
+        Deadlock.main(args);
+        ProducerConsumerExample.main(args);
     }
 }

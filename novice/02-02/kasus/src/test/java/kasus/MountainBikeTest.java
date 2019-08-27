@@ -25,7 +25,7 @@ public class MountainBikeTest {
     @Test
     public void testBicycleHasSpeed() {
 
-        //assertNotNull(classUnderTest.getSpeed());
+        
         assertEquals(30, classUnderTest.getSpeed());
     }
 
