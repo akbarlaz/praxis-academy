@@ -21,16 +21,15 @@ apply plugin: 'java'
 //apply plugin: 'org.junit.platform.gradle.plugin'
 apply plugin: 'application'
 
-
-
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
+    //jcenter()
     mavenCentral()
 }
 
 dependencies {
-
+    
     testImplementation(
             'junit:junit:4.12',
             'org.junit.jupiter:junit-jupiter-api:5.5.1'
@@ -49,13 +48,20 @@ dependencies {
     )
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.0'
-
 }
 
 application {
     // Define the main class for the application
-    mainClassName = 'latihan.App'
+    mainClassName = 'kasus.App'
 }
 
+run {
+    standardInput = System.in
+}
 
-
+jar { 
+    baseName = 'kasus' 
+    version = '1.0' 
+    manifest { 
+         attributes 'Main-Class': 'kasus.App' } 
+}    
