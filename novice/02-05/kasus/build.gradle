@@ -26,6 +26,8 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.4.3'
 }
 
 application {
@@ -33,6 +35,8 @@ application {
     mainClassName = 'kasus.App'
 }
 
-run {
-    standardInput = System.in
-}
+/* jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+    }
+} */

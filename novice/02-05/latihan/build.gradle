@@ -17,12 +17,27 @@ plugins {
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    //jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
+
+    /*
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.4.3'
+    implementation 'org.hibernate:hibernate-core:5.4.4.Final'
+    */
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    //implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.3'
+
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.4.Final'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
@@ -30,9 +45,5 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'kasus.App'
-}
-
-run {
-    standardInput = System.in
+    mainClassName = 'latihan.App'
 }

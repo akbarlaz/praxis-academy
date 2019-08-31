@@ -3,6 +3,8 @@
  */
 package latihan;
 
+import latihan.mvc.*;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -10,5 +12,8 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        MVCPatternDemo mvc = new MVCPatternDemo();
+        mvc.main(args);
     }
 }

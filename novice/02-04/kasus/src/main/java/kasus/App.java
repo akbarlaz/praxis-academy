@@ -3,12 +3,9 @@
  */
 package kasus;
 
-import kasus.Controller.UserController;
-import kasus.Controller.UserAnggotaController;
-import kasus.Model.User;
-import kasus.Model.UserAnggota;
-import kasus.View.UserView;
-import kasus.View.UserAnggotaView;
+import kasus.Model.Bicycle;
+import kasus.View.BicycleView;
+import kasus.Controller.BicycleController;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -19,53 +16,28 @@ public class App {
     }
 
     public static void main(String[] args) {
-        
-        //fetch user record based on his username
-        UserAnggota model1 = retrieveUserAnggotaFromDatabase();
+        //fetch student record based on his roll no from the database
+        Bicycle model  = retriveBicycleFromDatabase();
 
-        //Create view
-        UserAnggotaView view1 = new UserAnggotaView();
+        //Create a view : to write student details on console
+        BicycleView view = new BicycleView();
 
-        UserAnggotaController controller1 = new UserAnggotaController(model1, view1);
+        BicycleController controller = new BicycleController(model, view);
 
-        controller1.updateView();
+        controller.updateView();
 
         //update model data
-        controller1.setNamaUserAnggota("John Constantine");
-        controller1.updateView();
-
-        Scanner scan = new Scanner(System.in);
-        String username, password, nama, alamat;
-        System.out.println("Username:");
-        username = scan.nextLine();
-        System.out.println("Password:");
-        password = scan.nextLine();
-        System.out.println("Nama");
-        nama = scan.nextLine();
-        System.out.println("alamat");
-        alamat = scan.nextLine();
-        List<UserAnggota> members = new ArrayList<UserAnggota>();
-        controller1.set
         
-        controller1.updateView();
+        controller.setBicycleCadence(133);
+        controller.setBicycleGear(1455);
 
-    }
+        controller.updateView();
+   }
 
-    private static User retreiveUserFromDatabase() {
-
-        User user = new User();
-        user.setUsername("panjul");
-        user.setPassword("password");
-        return user;
-    }
-
-    private static UserAnggota retrieveUserAnggotaFromDatabase() {
-
-        UserAnggota user1 = new UserAnggota();
-        user1.setUsername("poli");
-        user1.setPassword("password");
-        user1.setNamaAnggota("nama");
-        user1.setAlamatAnggota("alamat");
-        return user1;
-    }
+   private static Bicycle retriveBicycleFromDatabase(){
+      List<Bicycle> bicycles = new ArrayList<>();
+      bicycles.add(new Bicycle());      
+      bicycles.add(new Bicycle());
+      return bicycles;
+   }
 }

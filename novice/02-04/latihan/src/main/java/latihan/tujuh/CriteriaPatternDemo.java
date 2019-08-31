@@ -33,6 +33,6 @@ public class CriteriaPatternDemo {
         for (Person person : persons) {
            System.out.println("Person : [ Name : " + person.getName() + ", Gender : " + person.getGender() + ", Marital Status : " + person.getMaritalStatus() + " ]");
         }
-     }      
-  }
+    }      
+  
 }
