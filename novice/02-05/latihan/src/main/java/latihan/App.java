@@ -55,11 +55,14 @@ public class App {
 
 
         session.save(oAlien);
-
+        
         tx.commit(); */
-        int pilihan;
+
+        String fname,lname;
+        Integer salary, EmployeeID, pilihan;
         Scanner scan = new Scanner(System.in);
         ManageEmployee obj = new ManageEmployee();
+        obj.connect();
         System.out.println("[1] Lihat data pegawai");
         System.out.println("[2] Tambah data pegawai");
         System.out.println("[3] Edit data pegawai");
@@ -71,22 +74,43 @@ public class App {
         switch (pilihan) {
             case 1:
                 
+                obj.listEmployees();        
                 break;
             case 2:
-
+                
+                System.out.print("\nNama depan\t: ");
+                fname = scan.next();
+                System.out.print("\nNama belakang\t: ");
+                lname = scan.next();
+                System.out.print("\nGaji\t: ");
+                salary = scan.nextInt();
+                obj.addEmployee(fname, lname, salary);
+                System.out.println("Data berhasil disimpan");
                 break;
             case 3:
-
+                
+                obj.listEmployees();
+                System.out.println("Masukkan id pegawai yg akan di update");
+                EmployeeID = scan.nextInt();
+                System.out.println("Masukkan gaji baru");
+                salary = scan.nextInt();
+                obj.updateEmployee(EmployeeID, salary);
+                System.out.println("Data berhasil disimpan");
+                obj.listEmployees();
                 break;
             case 4:
-
+                obj.listEmployees();
+                System.out.println("Masukkan id pegawai yg akan di delete");
+                EmployeeID = scan.nextInt();
+                obj.deleteEmployee(EmployeeID);
+                System.out.println("Data berhasil dihapus");
                 break;
             default:
                 break;
         }
-        obj.listEmployees();
+        
 
 
-        obj.deleteEmployee(EmployeeID);
+        
     }
 }

@@ -14,15 +14,11 @@ public class ManageEmployee {
    private static SessionFactory factory; 
    public static void main(String[] args) {
       
-      try {
-         factory = new Configuration().configure().buildSessionFactory();
-      } catch (Throwable ex) { 
-         System.err.println("Failed to create sessionFactory object." + ex);
-         throw new ExceptionInInitializerError(ex); 
-      }
+      
       
       ManageEmployee ME = new ManageEmployee();
 
+      ME.connect();
       /* Add few employee records in database */
       //Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
       //Integer empID2 = ME.addEmployee("Daisy", "Das", 5000);
@@ -43,6 +39,9 @@ public class ManageEmployee {
    
    /* Method to CREATE an employee in the database */
    public Integer addEmployee(String fname, String lname, int salary){
+      
+      
+
       Session session = factory.openSession();
       Transaction tx = null;
       Integer employeeID = null;
@@ -66,11 +65,14 @@ public class ManageEmployee {
       Session session = factory.openSession();
       Transaction tx = null;
       
+      
+
       try {
          tx = session.beginTransaction();
          List employees = session.createQuery("FROM Employee").list(); 
          for (Iterator iterator = employees.iterator(); iterator.hasNext();){
-            Employee employee = (Employee) iterator.next(); 
+            Employee employee = (Employee) iterator.next();
+            System.out.println("ID: "+employee.getId()); 
             System.out.print("First Name: " + employee.getFirstName()); 
             System.out.print("  Last Name: " + employee.getLastName()); 
             System.out.println("  Salary: " + employee.getSalary()); 
@@ -89,6 +91,7 @@ public class ManageEmployee {
       Session session = factory.openSession();
       Transaction tx = null;
       
+
       try {
          tx = session.beginTransaction();
          Employee employee = (Employee)session.get(Employee.class, EmployeeID); 
@@ -108,6 +111,8 @@ public class ManageEmployee {
       Session session = factory.openSession();
       Transaction tx = null;
       
+      
+
       try {
          tx = session.beginTransaction();
          Employee employee = (Employee)session.get(Employee.class, EmployeeID); 
@@ -118,6 +123,15 @@ public class ManageEmployee {
          e.printStackTrace(); 
       } finally {
          session.close(); 
+      }
+   }
+
+   public void connect() {
+      try {
+         factory = new Configuration().configure().buildSessionFactory();
+      } catch (Throwable ex) { 
+         System.err.println("Failed to create sessionFactory object." + ex);
+         throw new ExceptionInInitializerError(ex); 
       }
    }
 }

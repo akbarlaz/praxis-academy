@@ -47,3 +47,7 @@ application {
     // Define the main class for the application
     mainClassName = 'latihan.App'
 }
+
+run {
+    standardInput = System.in
+}
