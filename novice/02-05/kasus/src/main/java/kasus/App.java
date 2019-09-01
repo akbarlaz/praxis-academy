@@ -3,39 +3,67 @@
  */
 package kasus;
 
-import java.sql.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 
 public class App {
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) {
 
-        Class.forName("org.mariadb.jdbc.Driver").newInstance();
-        Connection con = DriverManager.getConnection("jdbc:mariadb://localhost/kasusdb", "akbarlaz", "password");
+        // config builder
+        Configuration cfg=new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Member.class).addAnnotatedClass(Salutation.class);	        
+        //session factory builder
+        SessionFactory factory = cfg.buildSessionFactory();
+        // open session
+        Session session = factory.openSession();
+        session.beginTransaction();
 
-        Statement st = con.createStatement();
-        String sql = ("SELECT * FROM members ORDER BY member_id DESC LIMIT 1;");
-        ResultSet rs = st.executeQuery(sql);
-        if(rs.next()) { 
-        int id = rs.getInt("member_id"); 
-        String str1 = rs.getString("full_name");
+        String hql = "from Member as m inner join m.salutation as salut";
+        List<?> list = session.createQuery(hql).list();
+        
+        for(int i=0; i<list.size(); i++) {
+			Object[] row = (Object[]) list.get(i);
+			Salutation salut = (Salutation)row[0];
+			Member member = (Member)row[1];
+			System.out.println("Member Id:"+member.getId()+", Member Name:"+ member.getFullName()+
+					   "member addres"+ member.getAddress()+", member salut"+ salut.getSalutation());
+		}		
 
-        System.out.println(id);
-        System.out.println(str1);
-        }
-
-        con.close();
-
+        /* Salutation sal = new Salutation();
+        sal.setId(1);sal.setSalutation("Mr.");
+        Salutation sal2 = new Salutation();
+        sal2.setId(2);sal2.setSalutation("Ms.");
+        Salutation sal3 = new Salutation();
+        sal3.setId(3);sal3.setSalutation("Mrs.");
+        Salutation sal4 = new Salutation();
+        sal4.setId(4);sal4.setSalutation("Dr.");
         
 
-        /* Class.forName("org.mariadb.jdbc.Driver");  
-        Connection con=DriverManager.getConnection(  
-        "jdbc:mariadb://localhost:3306/kasusdb","akbarlaz","password");  
-        //here sonoo is database name, root is username and password  
-        Statement stmt=con.createStatement();  
-        ResultSet rs=stmt.executeQuery("select * from members");  
-        rs.first();
-        System.out.println(rs.getString(1)); //result is "Hello World!" */
+        Member m1 = new Member();m1.setId(1);m1.setFullName("Janet Jones");m1.setAddress("First Street Plot No 4");m1.setSalutation(sal2);
+        Member m2 = new Member();m2.setId(2);m2.setFullName("Robert Phil");m2.setAddress("3rd Street 34");m2.setSalutation(sal);
+        Member m3 = new Member();m3.setId(3);m3.setFullName("Robert Phil");m3.setAddress("5th Avenue");m3.setSalutation(sal3);
 
-          
+        session.save(sal);
+        session.save(sal2);
+        session.save(sal3);session.save(sal4);
+        session.save(m1);session.save(m2);session.save(m3);
+        */
+        session.getTransaction().commit();
+        session.close();
+
+         
+        
+        
+
     }
+
 }

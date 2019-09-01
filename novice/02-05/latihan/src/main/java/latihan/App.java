@@ -3,23 +3,36 @@
  */
 package latihan;
 
-import org.hibernate.Session;
+/* import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-//import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistry;
+ */
 import java.util.Scanner;
 
 
 public class App {
-    /* public String getGreeting() {
-        return "Hello world.";
-    } */
 
     public static void main(String[] args) {
-        //System.out.println(new App().getGreeting());
+
+        /* Class.forName("org.mariadb.jdbc.Driver").newInstance();
+        Connection con = DriverManager.getConnection("jdbc:mariadb://localhost/kasusdb", "akbarlaz", "password");
+
+        Statement st = con.createStatement();
+        String sql = ("SELECT * FROM members ORDER BY member_id DESC LIMIT 1;");
+        ResultSet rs = st.executeQuery(sql);
+        if(rs.next()) { 
+        int id = rs.getInt("member_id"); 
+        String str1 = rs.getString("full_name");
+
+        System.out.println(id);
+        System.out.println(str1);
+        }
+
+        con.close(); */
 
         /* Alien oAlien = new Alien();
         oAlien.setId(101);
