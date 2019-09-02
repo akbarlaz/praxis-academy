@@ -1,27 +1,25 @@
 package kasus;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "salutation")
 public class Salutation {
    
    @Id
-   private int salutationId;
+   private int salutation_id;
    private String salutation;   
-   @OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="comp_id")
-	private Set<Member> members;    
+   @OneToMany(mappedBy = "salutation", cascade = CascadeType.ALL)
+	private List<Member> members = new ArrayList<>(); 
 
    
    public Salutation() {}
@@ -30,11 +28,11 @@ public class Salutation {
    }
    
    public int getId() {
-      return salutationId;
+      return salutation_id;
    }
    
-   public void setId( int salutationId ) {
-      this.salutationId = salutationId;
+   public void setId( int salutation_id ) {
+      this.salutation_id = salutation_id;
    }
    
    public String getSalutation() {
@@ -45,5 +43,12 @@ public class Salutation {
       this.salutation = salutation;
    }
    
+   public List<Member> getMembers() {
+      return members;
+   }
+
+   public void setMembers(List<Member> members) {
+      this.members = members;
+   }
 
  }

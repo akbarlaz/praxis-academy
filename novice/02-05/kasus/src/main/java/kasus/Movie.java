@@ -1,8 +1,18 @@
 package kasus;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "movie")
@@ -10,8 +20,10 @@ public class Movie {
 
    @Id
    private int movie_id;
-   private String title; 
-   private int member_id;  
+   private String title;
+   @ManyToMany(mappedBy = "movies")
+   private List<Member> members = new ArrayList<>();
+   
 
    public Movie() {}
    public Movie(String title) {
@@ -34,13 +46,17 @@ public class Movie {
       this.title = title;
    }
    
-   public Integer getMemberId() {
-      return member_id;
-   }
-   
-   public void setMemberId( Integer member_id ) {
-      this.member_id = member_id;
-   }
+   @ManyToMany(cascade=CascadeType.ALL)  
+   @JoinTable(name="member_movie", joinColumns=@JoinColumn(name="movie_id"), 
+   inverseJoinColumns=@JoinColumn(name="member_id"))  
+   public List<Member> getMembers()  
+   {  
+      return members;  
+   }  
+   public void setMembers(List<Member> members)  
+   {  
+      this.members = members;  
+   }  
    
    
  }

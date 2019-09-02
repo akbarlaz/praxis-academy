@@ -38,7 +38,7 @@ public class ManageMovie {
    }
    
    /* Method to CREATE an employee in the database */
-   public Integer addMovie(String title, Integer member_id){
+   public Integer addMovie(String title){
       
       Session session = factory.openSession();
       Transaction tx = null;
@@ -72,7 +72,7 @@ public class ManageMovie {
             Movie movie = (Movie) iterator.next();
             System.out.println("ID: "+movie.getId()); 
             System.out.print("Title:" + movie.getTitle()); 
-            System.out.print("Member ID: " + movie.getMemberId()); 
+            
          }
          tx.commit();
       } catch (HibernateException e) {

@@ -30,11 +30,12 @@
       <!-- <property name="show_sql">true</property> -->
 
       <!-- Create/Update -->
-      <property name="hbm2ddl.auto">update</property>      
+      <property name="hbm2ddl.auto">create-drop</property>      
 
-      <!-- List of XML mapping files -->
-      <mapping class = "kasus.Member"/>
-      <mapping class = "kasus.Salutation"/>
+      <!-- Mapping Class -->
+        <mapping class="kasus.Member" />
+        <mapping class="kasus.Salutation" />
+        <mapping class="kasus.Movie" />
       
    </session-factory>
 </hibernate-configuration>

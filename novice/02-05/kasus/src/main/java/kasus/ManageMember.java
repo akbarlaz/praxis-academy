@@ -3,6 +3,7 @@ package kasus;
 import java.util.List; 
 import java.util.Date;
 import java.util.Iterator; 
+import java.util.Set;
  
 import org.hibernate.HibernateException; 
 import org.hibernate.Session; 
@@ -38,7 +39,7 @@ public class ManageMember {
    }
    
    /* Method to CREATE an employee in the database */
-   public Integer addMember(String fullName, String address, Salutation salutation){
+   public Integer addMember(String fullName, String address, Salutation salutation, Set<Movie> movies){
       
       
 
@@ -48,8 +49,7 @@ public class ManageMember {
       
       try {
          tx = session.beginTransaction();
-         Salutation sal = new Salutation();
-         Member member = new Member(fullName, address);
+         Member member = new Member(fullName, address, salutation, (List<Movie>) movies);
          member_id = (Integer) session.save(member); 
          tx.commit();
       } catch (HibernateException e) {
@@ -88,7 +88,7 @@ public class ManageMember {
    }
    
    /* Method to UPDATE salary for an employee */
-   public void updateMember(Integer member_id, String fullName ){
+   public void updateMember(Integer member_id, String fullName, String address, Salutation salutation, Set<Movie> movies ){
       Session session = factory.openSession();
       Transaction tx = null;
       
@@ -97,6 +97,9 @@ public class ManageMember {
          tx = session.beginTransaction();
          Member member = (Member)session.get(Member.class, member_id); 
          member.setFullName( fullName );
+         member.setAddress(address);
+         member.setSalutation(salutation);
+         member.setMovies((List<Movie>) movies);
 		 session.update(member); 
          tx.commit();
       } catch (HibernateException e) {
