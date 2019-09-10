@@ -7,4 +7,4 @@ def inputHandler(data):
 	reactor.stop()
 
 reactor.addHandler(inputHandler, device, IO.INPUT)
-reactor.run() # run reactor, which handles events and calls appropriate handlers
+reactor.run() // run reactor, which handles events and calls appropriate handlers
