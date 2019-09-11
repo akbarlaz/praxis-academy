@@ -2,7 +2,14 @@ var table = document.querySelector('#shoppingList');
 var input = document.querySelector('input');
 var button = document.querySelector('button');
 
-button.onclick = function () {
+button.onclick = addItem;
+input.addEventListener("keyup", event => {
+    if(event.key !== "Enter") return;
+    button.click();
+    event.preventDefault();
+});
+
+function addItem() {
     var inputValue = input.value;
     input.value = '';
     table.className = "table is-striped";
