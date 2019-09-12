@@ -1,6 +1,9 @@
 <template>
     <div class="coba">
-        
+        <h1>{{msg}}</h1>
+        <a class="button" href="/">Home</a>
+        <a class="button" href="/about">About</a>
+        <a class="button" href="/coba">Coba</a>     
     </div>
 </template>
 
@@ -8,32 +11,7 @@
 export default {
     name: 'Coba',
     props: {
-    msg: String,
-    item: Object
-  },
-  data: function () {
-    return {
-      isOpen: false
-    }
-  },
-  computed: {
-    isFolder: function () {
-      return this.item.children &&
-        this.item.children.length
-    }
-  },
-  methods: {
-    toggle: function () {
-      if (this.isFolder) {
-        this.isOpen = !this.isOpen
-      }
-    },
-    makeFolder: function () {
-      if (!this.isFolder) {
-      	this.$emit('make-folder', this.item)
-        this.isOpen = true
-      }
-    }
+        msg: String
   }
 }
 </script>

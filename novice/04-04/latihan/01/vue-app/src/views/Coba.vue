@@ -1,35 +1,46 @@
 <template>
     <div class="coba">
-        <Coba msg="Welcome to coba page"/>
+        <VTreeview 
+          :node="root"
+        />
     </div>
 </template>
 
 <script>
 import Coba from '@/components/Coba.vue'
+import VTreeview from '@/components/VTreeview.vue'
 
 export default {
     name: 'coba',
+    data() {
+      return {
+        root: {
+          name: '/',
+          children: [
+            {
+              name: 'music',
+              children: [
+                {
+                  name: 'hey-there-delillah.mp3'
+                }
+              ]
+            },
+            {
+              name: 'video',
+              children: [
+                {
+                  name: 'vina-garut.mp4'
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
     components: {
-        Coba
+        Coba,
+        VTreeview
     }
 }
-
-var demo = new Vue({
-  el: '#demo',
-  data: {
-    coba: coba
-  },
-  methods: {
-  	makeFolder: function (item) {
-    	Vue.set(item, 'children', [])
-      this.addItem(item)
-    },
-    addItem: function (item) {
-    	item.children.push({
-        name: 'new stuff'
-      })
-    }
-  }
-})
 </script>
 
