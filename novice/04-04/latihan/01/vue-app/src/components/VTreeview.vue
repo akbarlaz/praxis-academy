@@ -1,12 +1,19 @@
 <template>
     <div>
         <div 
-            @click="expanded = !expanded"
+            @click="nodeClicked"
             :style="{'margin-left': `${depth * 20}px` }"
             class="node"
             >
-            <span class="type">{{expanded ? '&#9660;' : '&#9658;'}}</span>
-            {{node.name}}
+            <span
+                v-if="hasChildren" 
+                class="type">{{expanded ? '&#9660;' : '&#9658;'}}
+            </span>
+            <span
+                class="type"
+                v-else
+            >&#9671;</span>
+            <span class="type">{{node.name}}</span>
         </div>
         <div v-if="expanded">
             <VTreeview
@@ -15,6 +22,7 @@
             :key="child.name"
             :node="child"
             :depth="depth + 1"
+            @onClick="(node) => $emit('onClick', node)"
         />
         </div>
         
@@ -36,6 +44,19 @@ export default {
         return {
             expanded: false,
         }
+    },
+    methods: {
+        nodeClicked() {
+            this.expanded = !this.expanded;
+            if (!this.hasChildren) {
+                this.$emit('onClick', this.node);
+            }
+        }
+    },
+    computed: {
+        hasChildren() {
+            return this.node.children;
+        }
     }
 }
 </script>
@@ -43,5 +64,8 @@ export default {
 <style scoped>
     .node {
         text-align: left;
+    }
+    .type {
+        cursor: pointer; 
     }
 </style>
